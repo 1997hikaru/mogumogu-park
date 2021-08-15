@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :sellers, controllers: {
+    sessions:      'sellers/sessions',
+    passwords:     'sellers/passwords',
+    registrations: 'sellers/registrations'
+  }
+  devise_for :buyers, controllers: {
+    sessions:      'buyers/sessions',
+    passwords:     'buyers/passwords',
+    registrations: 'buyers/registrations'
+  }
+  root to: "items#index"
 end
